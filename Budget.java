@@ -2,6 +2,8 @@
 //this class calculates whether the user is above/below budget
 //also looks at what categories the user spends on the most
 
+//change budget function from 
+
 package hackhers;
 
 import java.util.Scanner;
