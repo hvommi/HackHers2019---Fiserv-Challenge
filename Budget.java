@@ -2,8 +2,6 @@
 //this class calculates whether the user is above/below budget
 //also looks at what categories the user spends on the most
 
-//change budget function from 
-
 package hackhers;
 
 import java.util.Scanner;
@@ -20,6 +18,12 @@ public class Budget {
 		int MAX_SIZE = 4; //counter for the for-loop
 		int[] x = new int [] {1, 2, 3, 4}; //weeks in a month (week1, week2... on graph) - xAxis on graph
 		double [] y = new double [] {0, 0, 0, 0}; //total transaction amounts - yAxis on graph
+		
+		String cat = "";
+		String t1 = ""; 
+		String t2 = "";
+		String t3 = "";
+		int spendType = 0;
 		
 		//Categories C = new Categories();
 		ArrayList<String> category = new ArrayList<String>();
@@ -86,18 +90,26 @@ public class Budget {
 			System.out.println("Careful! You are over budget!");
 		}
 		
-		//linear regression functions: tells the user the trends in their data
-//		System.out.println("Predicted y-intercept: " + regression.intercept());
-//		System.out.println("Predicted slope: " + regression.slope());
-//		System.out.println("Predicted Coefficient of Determination: " + regression.R2());
-//		System.out.println("Error of y-int prediction: " + regression.interceptStdErr());
-//		System.out.println("Error of slope prediction: " + regression.slopeStdErr());
 		System.out.println("String: " + regression.toString());
 		System.out.println("Next predicted point: " + regression.predict(x)); //modified the function...hope it works lmao
+		
+		SaveTips tips = new SaveTips(cat, t1, t2, t3, spendType);
+		
+		System.out.println("Enter a number indicating your spending pattern. 1 = low, 2 = average, 3 = high");
+		spendType = input.nextInt();
+		tips.createTips(spendType);
 
 	}
 
 }
+
+/*
+ * for(int i = 0; i < (MAX_SIZE - 1); i++){
+ *     line.drawLine(x[i], y[i], x[i+1], y[i+1]);
+ * }
+ * 
+ */
+
 
 /* what the class is doing:
 * accept the input for the budget, number of transactions, and transaction data
