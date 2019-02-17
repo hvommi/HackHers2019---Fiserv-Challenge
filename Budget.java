@@ -5,6 +5,9 @@
 package hackhers;
 
 import java.util.Scanner;
+
+import Tips.SaveTips;
+
 import java.util.ArrayList;
 
 
@@ -93,11 +96,7 @@ public class Budget {
 		System.out.println("String: " + regression.toString());
 		System.out.println("Next predicted point: " + regression.predict(x)); //modified the function...hope it works lmao
 		
-		SaveTips tips = new SaveTips(cat, t1, t2, t3, spendType);
-		
-		System.out.println("Enter a number indicating your spending pattern. 1 = low, 2 = average, 3 = high");
-		spendType = input.nextInt();
-		tips.createTips(spendType);
+
 
 	}
 
